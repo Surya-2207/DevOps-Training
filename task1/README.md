@@ -4,7 +4,7 @@ This project demonstrates how to serve a simple HTML page using Nginx in a Docke
 
 ## Files
 
-- `index.html` — The HTML file with a nice UI greeting from xops.
+- `index.html` — The HTML file with a UI says Hello from xops.
 - `Dockerfile` — Docker configuration to run Nginx and serve the HTML page.
 
 ## How to Build and Run
@@ -22,8 +22,3 @@ This project demonstrates how to serve a simple HTML page using Nginx in a Docke
 3. **View in browser:**
    Open [http://localhost:8080](http://localhost:8080) to see the page.
 
-## Requirements
-
-- [Docker](https://www.docker.com/) installed on your system.
-
-##
