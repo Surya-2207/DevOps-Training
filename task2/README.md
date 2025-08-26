@@ -2,6 +2,13 @@
 
 This project provisions an AWS EC2 instance running a web server using Terraform. It creates a VPC, subnet, internet gateway, route table, security group, and an EC2 instance with Apache HTTP server installed.
 
+## Screenshot
+
+<img width="1366" height="768" alt="Screenshot 2025-08-19 162305" src="https://github.com/user-attachments/assets/23a32ed2-f4b4-4faf-995a-0ee665f1ecfd" />
+
+<img width="955" height="559" alt="Screenshot 2025-08-19 162809" src="https://github.com/user-attachments/assets/b5b4df09-887a-4d35-8a62-c1def6db018b" />
+
+
 ## Prerequisites
 
 - [Terraform](https://www.terraform.io/downloads.html) v1.12.2 or later
