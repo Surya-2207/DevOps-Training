@@ -1,0 +1,62 @@
+name: 🚀 Deploy Node.js App to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Setup SSH agent
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Step 3: Ensure app directory exists on EC2
+      - name: Create app directory on EC2
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.EC2_PUBLIC_IP }} "mkdir -p ~/app"
+
+      # Step 4: Copy project files to EC2
+      - name: Sync project files
+        run: |
+          rsync -avz --exclude '.git*' -e "ssh -o StrictHostKeyChecking=no" ./Task3/ \
+            ${{ secrets.SSH_USERNAME }}@${{ secrets.EC2_PUBLIC_IP }}:~/app/
+
+      # Step 5: Install Node.js, dependencies, and restart app with PM2
+      - name: Restart Node.js App on EC2
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.EC2_PUBLIC_IP }} << 'EOF'
+            # Install Node.js 22 if not installed
+            if ! command -v node > /dev/null; then
+              curl -fsSL https://rpm.nodesource.com/setup_22.x | sudo bash -
+              sudo yum install -y nodejs
+            fi
+
+            # Install PM2 globally if not installed
+            if ! command -v pm2 > /dev/null; then
+              sudo npm install -g pm2
+            fi
+
+            # Navigate to app folder
+            cd ~/app
+
+            # Kill old Node.js process if running
+            pkill -f server.js || true
+
+            # Install dependencies
+            npm install --production
+
+            # Start or restart app with PM2
+            pm2 stop task3 || true
+            pm2 start server.js --name task3
+            pm2 save
+          EOF
