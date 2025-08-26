@@ -28,7 +28,7 @@ jobs:
       # Step 4: Copy project files to EC2
       - name: Sync project files
         run: |
-          rsync -avz --exclude '.git*' -e "ssh -o StrictHostKeyChecking=no" ./Task3/ \
+          rsync -avz --exclude '.git*' -e "ssh -o StrictHostKeyChecking=no" ./task3/ \
             ${{ secrets.SSH_USERNAME }}@${{ secrets.EC2_PUBLIC_IP }}:~/app/
 
       # Step 5: Install Node.js, dependencies, and restart app with PM2
