@@ -3,3 +3,6 @@
 *.tfstate.backup
 *.hcl
 **/.terraform/
+node_modules
+npm-debug.log*
+.DS_Store
