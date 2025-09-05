@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xops-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xops-web
+  template:
+    metadata:
+      labels:
+        app: xops-web
+    spec:                     # <-- volumes go inside *this* spec
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html/index.html
+          subPath: index.html
+      volumes:                # <-- must be here, under template.spec
+      - name: html
+        configMap:
+          name: xops-html
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: xops-web
+spec:
+  type: NodePort
+  selector:
+    app: xops-web
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30007
+
