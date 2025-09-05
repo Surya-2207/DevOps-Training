@@ -3,6 +3,12 @@
 ## Overview
 This task demonstrates how to deploy a web application using Kubernetes, Docker, and a YAML configuration file. The application consists of a simple HTML page and is managed using Kubernetes resources.
 
+## Screenshots
+
+<img width="1366" height="768" alt="Screenshot 2025-09-05 104414" src="https://github.com/user-attachments/assets/11bf2038-40d3-4a09-8c92-5d80e03ad5b6" />
+
+
+
 ## Files
 - `app.yml`: Kubernetes manifest file for deploying the web application.
 - `index.html`: The web application's main HTML file.
