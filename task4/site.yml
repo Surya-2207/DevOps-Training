@@ -1,0 +1,21 @@
+- hosts: web
+  become: yes
+  tasks:
+    - name: Install NGINX
+      yum:
+        name: nginx
+        state: present
+
+    - name: Start NGINX
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Copy custom index.html
+      copy:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+        owner: root
+        group: root
+        mode: '0644'

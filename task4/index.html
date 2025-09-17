@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XOps Microchallenge #4</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .challenge {
+      background: #ffffff;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 600px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    h1 {
+      color: #0078d7;
+      font-size: 2.2em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #333;
+      margin: 10px 0;
+    }
+
+    strong {
+      color: #0078d7;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1em;
+      color: #fff;
+      background: #0078d7;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: #005fa3;
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="challenge">
+    <h1>Welcome to XOps Microchallenge #4!</h1>
+    <p>Your NGINX web server is running on AWS EC2 🚀</p>
+    <p>Provisioned with <strong>Terraform</strong> & configured by <strong>Ansible</strong>.</p>
+    <a href="#" class="btn">Learn More</a>
+  </div>
+</body>
+</html>
