@@ -3,6 +3,12 @@
 ## Overview
 This task demonstrates the use of Terraform for infrastructure provisioning and Ansible for configuration management. It includes files for managing cloud resources, automating server setup, and deploying a simple web application.
 
+## Screenshots
+
+<img width="867" height="621" alt="Screenshot 2025-09-17 134623" src="https://github.com/user-attachments/assets/36d39049-d53f-42c2-b32f-0b60959b1f03" />
+---
+<img width="1366" height="768" alt="Screenshot 2025-09-17 134506" src="https://github.com/user-attachments/assets/e7a469b9-58e2-4aa9-bdb0-739b105d809c" />
+
 ## Contents
 - `index.html`: Sample web page to be deployed.
 - `inventory`: Ansible inventory file listing target hosts.
