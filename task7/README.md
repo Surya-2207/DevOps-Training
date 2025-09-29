@@ -1,5 +1,12 @@
 # Task 7: XOps Microchallenge #4 – Infrastructure as Code + Configuration Management Combo
 
+## Screenshots
+
+<img width="757" height="574" alt="image" src="https://github.com/user-attachments/assets/a97bbc99-c988-4372-9d9e-923105f39d4c" />
+
+
+
+
 ## Objective
 Provision an AWS EC2 instance using Terraform and configure it with Ansible to deploy a simple web app (NGINX + custom index.html).
 
